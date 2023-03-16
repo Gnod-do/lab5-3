@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Group",
+    "coordinates": {
+      "x": 1.23,
+      "y": 45
+    },
+    "creationDate": "2022-03-13T12:34:56.789Z",
+    "studentsCount": 30,
+    "transferredStudents": 5,
+    "formOfEducation": "DISTANCE_EDUCATION",
+    "semesterEnum": "FOURTH",
+    "groupAdmin": {
+      "name": "John Smith",
+      "birthday": "1990-01-01T00:00:00",
+      "height": 180,
+      "weight": 70.5,
+      "passportID": "AB12345"
+    }
+  }
+]
