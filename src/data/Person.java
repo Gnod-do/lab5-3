@@ -1,11 +1,12 @@
 package data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Person {
     private String name;
 
-    private java.time.LocalDateTime birthday;
+    private java.time.LocalDate birthday;
 
     private Long height;
 
@@ -13,7 +14,7 @@ public class Person {
 
     private String passportID;
 
-    public Person(String name, LocalDateTime birthday, Long height, Double weight, String passportID) {
+    public Person(String name, LocalDate birthday, Long height, Double weight, String passportID) {
         this.name = name;
         this.birthday = birthday;
         this.height = height;
@@ -31,7 +32,7 @@ public class Person {
      * @return Time of birthday.
      */
 
-    public LocalDateTime getBirthday(){return birthday;}
+    public LocalDate getBirthday(){return birthday;}
 
     /**
      * @return height of this person
@@ -53,7 +54,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return name + " was born on " + birthday + " with " + " height: " + height + " ,weight: " + weight +" and passportID: " + passportID + "was created";
+        return " " + name + " was born on " + birthday + " with " + " height: " + height + " ,weight: " + weight +" and passportID: " + passportID + " was created ";
     }
 
     @Override

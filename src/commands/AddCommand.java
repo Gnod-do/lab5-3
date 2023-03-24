@@ -4,7 +4,7 @@ import data.StudyGroup;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import utility.CollectionManager;
 import utility.Console;
 import utility.GroupAsker;
@@ -40,10 +40,8 @@ public class AddCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionManager.addToCollection(new StudyGroup(
-                    collectionManager.generateNextId(),
                     groupAsker.askName(),
                     groupAsker.askCoordinates(),
-                    new Date(),
                     groupAsker.askStudentsCount(),
                     groupAsker.askTransferredStudents(),
                     groupAsker.askFormOfEducation(),

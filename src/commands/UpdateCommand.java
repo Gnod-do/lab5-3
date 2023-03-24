@@ -7,7 +7,6 @@ import exceptions.GroupNotFoundException;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 
-import java.util.Date;
 import utility.CollectionManager;
 import utility.Console;
 import utility.GroupAsker;
@@ -48,9 +47,8 @@ public class UpdateCommand extends AbstractCommand{
 
             String name = oldGroup.getName();
             Coordinates coordinates = oldGroup.getCoordinates();
-            Date creationDate = oldGroup.getCreationDate();
             Long studentsCount = oldGroup.getStudentsCount();
-            long transferredStudents = oldGroup.getTransferredStudents();
+            int transferredStudents = oldGroup.getTransferredStudents();
             FormOfEducation formOfEducation  = oldGroup.getFormOfEducation();
             Semester semesterEnum = oldGroup.getSemesterEnum();
             Person groupAdmin = oldGroup.getGroupAdmin();
@@ -66,10 +64,8 @@ public class UpdateCommand extends AbstractCommand{
             if (groupAsker.askQuestion("Хотите сменить администратора группы?")) groupAdmin = groupAsker.askGroupAdmin();
 
             collectionManager.addToCollection(new StudyGroup(
-                    id,
                     name,
                     coordinates,
-                    creationDate,
                     studentsCount,
                     transferredStudents,
                     formOfEducation,

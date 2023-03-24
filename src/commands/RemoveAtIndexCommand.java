@@ -15,7 +15,7 @@ public class RemoveAtIndexCommand extends AbstractCommand{
     private CollectionManager collectionManager;
 
     public RemoveAtIndexCommand(CollectionManager collectionManager) {
-        super("remove_at_index", "удалить элемент из коллекции по index");
+        super("remove_at_index <index>", "удалить элемент из коллекции по index");
         this.collectionManager = collectionManager;
     }
 
@@ -46,7 +46,7 @@ public class RemoveAtIndexCommand extends AbstractCommand{
         } catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
         } catch (NumberFormatException exception) {
-            Console.printerror("ID должен быть представлен числом!");
+            Console.printerror("Index должен быть представлен числом!");
         } catch (GroupNotFoundException exception) {
             Console.printerror("Солдата с таким ID в коллекции нет!");
         }

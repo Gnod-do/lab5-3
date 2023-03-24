@@ -1,19 +1,22 @@
 package data;
 
-import java.util.Date;
+import com.google.gson.annotations.SerializedName;
+
+import java.time.LocalDateTime;
 
 public class StudyGroup {
+
     private Long id;
 
     private String name;
 
     private Coordinates coordinates;
 
-    private java.util.Date creationDate;
+    private java.time.LocalDateTime creationDate;
 
     private Long studentsCount;
 
-    private long transferredStudents;
+    private int transferredStudents;
 
     private FormOfEducation formOfEducation;
 
@@ -21,16 +24,16 @@ public class StudyGroup {
 
     private Person groupAdmin;
 
-    public StudyGroup(long id, String name, Coordinates coordinates, Date creationDate, Long studentsCount, long transferredStudents, FormOfEducation formOfEducation, Semester semesterEnum,Person groupAdmin) {
-        this.id = id;
+    public StudyGroup(String name, Coordinates coordinates, Long studentsCount,int transferredStudents, FormOfEducation formOfEducation, Semester semesterEnum, Person groupAdmin) {
         this.name = name;
         this.coordinates = coordinates;
-        this.creationDate = creationDate;
+        this.creationDate = LocalDateTime.now();
         this.studentsCount = studentsCount;
         this.transferredStudents = transferredStudents;
         this.formOfEducation = formOfEducation;
         this.semesterEnum = semesterEnum;
         this.groupAdmin = groupAdmin;
+        this.id = IDprovider.getInstance().getID();
     }
 
     /**
@@ -38,6 +41,10 @@ public class StudyGroup {
      */
 
     public Long getId() {return id;}
+
+    public void setId(Long id){
+        this.id = id;
+    }
 
     /**
      * @return name of studyGroup.
@@ -53,11 +60,7 @@ public class StudyGroup {
 
     public String getCoordinatesString() {return coordinates.getX() + "," + coordinates.getY();}
 
-    /**
-     * @return Date was created studyGroup.
-     */
 
-    public Date getCreationDate() {return creationDate;}
 
     /**
      * @return number students of studyGroup.
@@ -69,7 +72,7 @@ public class StudyGroup {
      * @return the number of transfer students.
      */
 
-    public long getTransferredStudents() {return transferredStudents;}
+    public int getTransferredStudents() {return transferredStudents;}
 
 
     /**
@@ -98,13 +101,14 @@ public class StudyGroup {
     @Override
     public String toString() {
         String info = "";
-        info += "Солдат №" + id;
-        info += " (добавлен " + creationDate;
+        info += "\nСолдат № " + id;
+        info += "\n(добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
+        info += "\n Имя: " + name;
         info += "\n Местоположение: " + coordinates;
-        info += "\n количество студентов" + studentsCount;
-        info += "\n количество переводных студентов" + transferredStudents;
-        info += "\n форма образования" + formOfEducation;
-        info += "\n имя лидера" + groupAdmin;
+        info += "\n количество студентов: " + studentsCount;
+        info += "\n количество переводных студентов: " + transferredStudents;
+        info += "\n форма образования: " + formOfEducation;
+        info += "\n имя лидера: " + groupAdmin;
         return info;
     }
 

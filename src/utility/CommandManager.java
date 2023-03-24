@@ -51,7 +51,7 @@ public class CommandManager {
 
     public CommandManager(Command helpCommand, Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
                           Command removeByIdCommand, Command clearCommand, Command saveCommand, Command exitCommand, Command executeScriptCommand,
-                          Command sumOfTransferredStudentsCommand, Command sortCommand, Command historyCommand, Command removeAtIndexCommand,
+                          Command removeAtIndexCommand, Command sortCommand, Command historyCommand, Command sumOfTransferredStudentsCommand,
                           Command minBySemesterEnumCommand, Command groupCountingByCoordinatesCommand) {
         this.helpCommand = helpCommand;
         this.infoCommand = infoCommand;
@@ -63,10 +63,10 @@ public class CommandManager {
         this.saveCommand = saveCommand;
         this.exitCommand = exitCommand;
         this.executeScriptCommand = executeScriptCommand;
-        this.sumOfTransferredStudentsCommand = sumOfTransferredStudentsCommand;
+        this.removeAtIndexCommand = removeAtIndexCommand;
         this.sortCommand = sortCommand;
         this.historyCommand = historyCommand;
-        this.removeAtIndexCommand = removeAtIndexCommand;
+        this.sumOfTransferredStudentsCommand = sumOfTransferredStudentsCommand;
         this.minBySemesterEnumCommand = minBySemesterEnumCommand;
         this.groupCountingByCoordinatesCommand = groupCountingByCoordinatesCommand;
 
@@ -80,10 +80,10 @@ public class CommandManager {
         commands.add(saveCommand);
         commands.add(exitCommand);
         commands.add(executeScriptCommand);
-        commands.add(sumOfTransferredStudentsCommand);
+        commands.add(removeAtIndexCommand);
         commands.add(sortCommand);
         commands.add(historyCommand);
-        commands.add(removeAtIndexCommand);
+        commands.add(sumOfTransferredStudentsCommand);
         commands.add(minBySemesterEnumCommand);
         commands.add(groupCountingByCoordinatesCommand);
 

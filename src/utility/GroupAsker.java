@@ -10,6 +10,7 @@ import exceptions.MustBeNotEmptyException;
 import exceptions.NotInDeclaredLimitsException;
 import run.App;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -106,16 +107,16 @@ public class GroupAsker {
      * @throws IncorrectInputInScriptException If script is running and something goes wrong.
      */
 
-    public Float askX() throws IncorrectInputInScriptException {
+    public Integer askX() throws IncorrectInputInScriptException {
         String strX;
-        Float x;
+        Integer x;
         while (true) {
             try {
                 Console.println("Введите координату X:");
                 Console.print(App.PS2);
                 strX = userScanner.nextLine().trim();
                 if (fileMode) Console.println(strX);
-                x = Float.parseFloat(strX);
+                x = Integer.parseInt(strX);
                 if (x > MAX_X) throw new NotInDeclaredLimitsException();
                 break;
             } catch (NoSuchElementException exception) {
@@ -173,7 +174,7 @@ public class GroupAsker {
      */
 
     public Coordinates askCoordinates() throws IncorrectInputInScriptException {
-        Float x;
+        Integer x;
         Long y;
         x = askX();
         y = askY();
@@ -222,16 +223,16 @@ public class GroupAsker {
      * @throws IncorrectInputInScriptException If script is running and something goes wrong.
      */
 
-    public long askTransferredStudents() throws IncorrectInputInScriptException {
+    public int askTransferredStudents() throws IncorrectInputInScriptException {
         String strTransferredStudents;
-        long transferredStudents;
+        int transferredStudents;
         while (true) {
             try {
                 Console.println("Введите количество переведенных студентов");
                 Console.print(App.PS2);
                 strTransferredStudents = userScanner.nextLine().trim();
                 if (fileMode) Console.println(strTransferredStudents);
-                transferredStudents = Long.parseLong(strTransferredStudents);
+                transferredStudents = Integer.parseInt(strTransferredStudents);
                 if (transferredStudents <= 0 ) throw new NotInDeclaredLimitsException();
                 break;
             } catch (NoSuchElementException exception) {
@@ -351,16 +352,16 @@ public class GroupAsker {
      * @throws IncorrectInputInScriptException If script is running and something goes wrong.
      */
 
-    public LocalDateTime askBirthday() throws IncorrectInputInScriptException {
+    public LocalDate askBirthday() throws IncorrectInputInScriptException {
         String strBirthday;
-        LocalDateTime birthday;
+        LocalDate birthday;
         while (true) {
             try {
                 Console.println("Введите день рождения");
                 Console.print(App.PS2);
                 strBirthday = userScanner.nextLine().trim();
                 if (fileMode) Console.println(strBirthday);
-                birthday = LocalDateTime.parse(strBirthday);
+                birthday = LocalDate.parse(strBirthday);
                 break;
             } catch (NoSuchElementException exception) {
                 Console.printerror("день рождения не распознано!");
@@ -484,7 +485,7 @@ public class GroupAsker {
 
     public Person askGroupAdmin() throws IncorrectInputInScriptException {
         String name;
-        LocalDateTime birthday;
+        LocalDate birthday;
         Long height;
         Double weight;
         String passportID;
@@ -532,26 +533,5 @@ public class GroupAsker {
 
     @Override
     public String toString() {return "GroupAsker (вспомогательный класс для запросов пользователю)";}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

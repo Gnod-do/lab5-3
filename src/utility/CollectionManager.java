@@ -1,5 +1,6 @@
 package utility;
 
+import data.IDprovider;
 import data.StudyGroup;
 import exceptions.CollectionIsEmptyException;
 
@@ -19,12 +20,10 @@ public class CollectionManager {
     private LocalDateTime lastSaveTime;
 
     private FileManager fileManager;
-
     public CollectionManager(FileManager fileManager) {
         this.lastInitTime = null;
         this.lastSaveTime = null;
         this.fileManager = fileManager;
-
         loadCollection();
     }
 
@@ -112,8 +111,8 @@ public class CollectionManager {
      * @return Sum of all transferred students or 0 if collection is empty.
      */
 
-    public long getSumOfTransferredStudents() {
-        long sumOfTransferredStudents = 0;
+    public int getSumOfTransferredStudents() {
+        int sumOfTransferredStudents = 0;
         for (StudyGroup group: groupsCollection) {
             sumOfTransferredStudents += group.getTransferredStudents();
         }
@@ -155,6 +154,7 @@ public class CollectionManager {
 
 
     public void addToCollection(StudyGroup group) {
+//        group.setId(IDprovider.getInstance().getID());
         groupsCollection.add(group);
     }
 

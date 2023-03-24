@@ -5,11 +5,11 @@ package data;
  */
 
 public class Coordinates {
-    private Float x;
+    private int x;
 
     private Long y;
 
-    public Coordinates(Float x, Long y) {
+    public Coordinates(int x, Long y) {
         this.x = x;
         this.y = y;
     }
@@ -18,7 +18,7 @@ public class Coordinates {
      * @return X-coordinate.
      */
 
-    public Float getX(){return x;}
+    public int getX(){return x;}
 
     /**
      * @return Y-coordinate.
@@ -27,11 +27,11 @@ public class Coordinates {
     public Long getY(){return y;}
 
     @Override
-    public String toString(){return "X:" + x + "Y:" +y;}
+    public String toString(){return "X: " + x + " and " + " Y: " +y;}
 
     @Override
     public int hashCode() {
-        return y.hashCode() + x.hashCode();
+        return y.hashCode() + Integer.valueOf(x).hashCode();
     }
 
     @Override

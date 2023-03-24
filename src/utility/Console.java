@@ -141,7 +141,7 @@ public class Console {
             case "execute_script":
                 if (!commandManager.executeScript(userCommand[1])) return 1;
                 else return scriptMode(userCommand[1]);
-            case "remove_at index":
+            case "remove_at_index":
                 if (!commandManager.removeAtIndex(userCommand[1])) return 1;
                 break;
             case "sort":

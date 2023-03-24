@@ -31,6 +31,7 @@ public class SortCommand extends AbstractCommand{
         try {
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
             collectionManager.sortByNameAscending();
+            Console.println(collectionManager);
             return true;
         }   catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
